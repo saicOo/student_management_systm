@@ -22,7 +22,7 @@ class StudentController extends Controller
     }
     public function index()
     {
-        $student = Student::paginate(4);
+        $student = Student::paginate(3);
         return view('student.index', compact('student'));
     }
 
@@ -149,5 +149,14 @@ return redirect('student');
     $id = $request->id;
     $data['Teacher'] = Teacher::where('course_id',$id)->get();
     return json_encode($data);
+    }
+    public function ajax_show(Request $request)
+{
+    if($request->ajax()){
+        $search = $request->get('search');
+        $search = str_replace(" ","%",$search);
+        $student = Student::where('fName','like','%'.$search.'%')->orWhere('lName','like','%'.$search.'%')->paginate(3);
+        return view('student.studentDetails_ajax',compact('student'));
+    }
     }
 }

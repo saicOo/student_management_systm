@@ -14,6 +14,9 @@
 @endif
 <div class="x_content" style="overflow-x: auto;">
     <h3>Teachers/List</h3>
+    <div class="input-group">
+        <input class="form-control" type="text" id="search" placeholder="Search for.....">
+    </div>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -28,21 +31,39 @@
         </tr>
       </thead>
       <tbody>
-          @foreach ($teacher as $item)
-          <tr>
-              <td>{{$item->fName}}</td>
-              <td>{{$item->lName}}</td>
-              <td>{{$item->phone}}</td>
-              <td>{{$item->branches->branchName}}</td>
-              <td>{{$item->courses->coursName}}</td>
-              <td><a class="btn btn-info" href="{{route('teacher.show', $item->id)}}">Show</a></td>
-              <td><a class="btn btn-info" href="{{route('teacher.edit', $item->id)}}">Edit</a></td>
-              <td><a class="btn btn-danger" href="{{route('teacher.destroy', $item->id)}}">Delete</a></td>
-            </tr>
-            @endforeach
+
+          @include('teacher.teacherDetails_ajax')
 
       </tbody>
     </table>
-    {{$teacher->links()}}
+	<input type="hidden" name="hidden_page" id="hidden_page" value="1" />
   </div>
-    @endsection
+@endsection
+
+
+@push('footer-scripts')
+<script type="text/javascript">
+	$(document).ready(function(){
+
+  function fetch_data(page, search="") {
+      $.ajax({
+         url:"<?php echo url(''); ?>/teacherdetails_ajax?page="+page+"&search="+search,
+         success:function(data){
+          $('tbody').html(data);
+         }
+      })
+     }
+       $(document).on('keyup', '#search', function(){
+          var search = $('#search').val();
+          var page = $('#hidden_page').val();
+          fetch_data(page,search);
+       });
+       $(document).on('click', '.pag_link a', function(e){
+           e.preventDefault();
+          var search = $('#search').val();
+          var page = $(this).attr('href').split('page=')[1];
+          fetch_data(page,search);
+     });
+   });
+</script>
+@endpush

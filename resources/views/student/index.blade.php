@@ -14,7 +14,9 @@
 @endif
 <div class="x_content" style="overflow-x: auto;">
     <h3>Students/List</h3>
-
+    <div class="input-group">
+        <input class="form-control" type="text" id="search" placeholder="Search for.....">
+    </div>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -29,21 +31,38 @@
         </tr>
       </thead>
       <tbody>
-          @foreach ($student as $item)
-          <tr>
-              <td>{{$item->fName}}</td>
-              <td>{{$item->lName}}</td>
-              <td>{{$item->phone}}</td>
-              <td>{{$item->email}}</td>
-              <td><a href="{{route('teacher.show', $item->teacherId)}}"><i class="fa fa-external-link user-profile-icon"></i> {{$item->teacher->fName}}</a></td>
-              <td><a class="btn btn-info" href="{{route('student.show', $item->id)}}">Show</a></td>
-              <td><a class="btn btn-info" href="{{route('student.edit', $item->id)}}">Edit</a></td>
-              <td><a class="btn btn-danger" href="{{route('student.destroy', $item->id)}}">Delete</a></td>
-            </tr>
-            @endforeach
+          @include('student.studentDetails_ajax')
 
       </tbody>
     </table>
-    {{$student->links()}}
+	<input type="hidden" name="hidden_page" id="hidden_page" value="1" />
   </div>
-    @endsection
+@endsection
+
+
+@push('footer-scripts')
+<script type="text/javascript">
+	$(document).ready(function(){
+
+  function fetch_data(page, search="") {
+      $.ajax({
+         url:"<?php echo url(''); ?>/studentdetails_ajax?page="+page+"&search="+search,
+         success:function(data){
+          $('tbody').html(data);
+         }
+      })
+     }
+       $(document).on('keyup', '#search', function(){
+          var search = $('#search').val();
+          var page = $('#hidden_page').val();
+          fetch_data(page,search);
+       });
+       $(document).on('click', '.pag_link a', function(e){
+           e.preventDefault();
+          var search = $('#search').val();
+          var page = $(this).attr('href').split('page=')[1];
+          fetch_data(page,search);
+     });
+   });
+</script>
+@endpush

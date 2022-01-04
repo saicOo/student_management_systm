@@ -42,6 +42,7 @@ Route::get('student/destroy/{id}','StudentController@destroy')->name('student.de
 Route::get('student/show/{id}','StudentController@show')->name('student.show');
 Route::post('student/courses', 'StudentController@getcours')->name('courses.get');
 Route::post('student/teacher', 'StudentController@getTeacher')->name('teacher.get');
+Route::get('studentdetails_ajax', 'StudentController@ajax_show');
 // teacher Route
 Route::get('teacher', 'teacherController@index')->name('teacher.index');
 Route::get('teacher/create', 'teacherController@create')->name('teacher.create');
@@ -51,3 +52,4 @@ Route::post('teacher/update/{id}','teacherController@update')->name('teacher.upd
 Route::get('teacher/destroy/{id}','teacherController@destroy')->name('teacher.destroy');
 Route::get('teacher/show/{id}','teacherController@show')->name('teacher.show');
 Route::post('teacher/courses', 'teacherController@getcours')->name('courses.get');
+Route::get('teacherdetails_ajax', 'teacherController@ajax_show');

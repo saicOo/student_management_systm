@@ -141,4 +141,13 @@ return redirect('teacher');
     $data['Course'] = Course::where('branchId',$id)->get();
     return json_encode($data);
     }
+    public function ajax_show(Request $request)
+    {
+        if($request->ajax()){
+            $search = $request->get('search');
+            $search = str_replace(" ","%",$search);
+            $teacher = Teacher::where('fName','like','%'.$search.'%')->paginate(2);
+            return view('teacher.teacherDetails_ajax',compact('teacher'));
+        }
+        }
 }
