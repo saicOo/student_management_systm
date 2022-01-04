@@ -94,23 +94,7 @@
 
                         <h3 class="name"><a href="{{route('teacher.show', $item->id)}}">{{$item->fName}}</a></h3>
 
-                        <div class="flex">
-                          <ul class="list-inline count2">
-                            <li>
-
-                              <h3>100</h3>
-                              <span>studing</span>
-                            </li>
-                            <li>
-                              <h3>5</h3>
-                              <span>Experience</span>
-                            </li>
-                            <li>
-                              <h3>3</h3>
-                              <span>courses</span>
-                            </li>
-                          </ul>
-                        </div>
+                        <h2 style="text-align: center">{{$item->branches->branchName}}</h2>
                         <p>
                           If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.
                         </p>

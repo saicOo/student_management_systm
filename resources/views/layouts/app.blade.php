@@ -10,14 +10,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     @include('layouts.head')
 </head>
-<body style="background: #F7F7F7">
+<body style="background: #F7F7F7" class="nav-md">
 
                         @guest
 
                         @yield('content')
 
                         @else
-                        <div class="nav-md">
+
                         <div class="container body">
                             <div class="main_container">
                               <div class="col-md-3 left_col">
@@ -115,15 +115,13 @@
                               <!-- /footer content -->
                             </div>
                           </div>
-                        </div>
+
                         @endguest
 
     <!-- jQuery -->
 <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-<!-- Chart.js -->
-<script src="{{ URL::asset('js/Chart.min.js') }}"></script>
 <!-- bootstrap-progressbar -->
 <script src="{{ URL::asset('js/bootstrap-progressbar.min.js') }}"></script>
 <!-- bootstrap-daterangepicker -->

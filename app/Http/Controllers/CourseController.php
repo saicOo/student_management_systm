@@ -92,11 +92,9 @@ return redirect('course/create');
     {
         $request->validate([
             'coursName' => 'required',
-            'branchId' => 'required',
         ]);
         $course =  Course::find($id);
         $course->coursName = $request->coursName;
-        $course->branchId = $request->branchId;
         $course->save();
         session()->flash('done',"update in successfully");
 return redirect('course');

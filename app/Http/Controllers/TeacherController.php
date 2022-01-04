@@ -92,12 +92,7 @@ return redirect('teacher/create');
      */
     public function edit($id)
     {
-        $request->validate([
-            'fName' => 'required|min:2|max:12',
-            'lName' => 'required|min:2|max:12',
-            'phone' => 'required|min:11|max:11',
 
-        ]);
         $teacher = Teacher::find($id);
         return view('teacher.edit', compact('teacher'));
     }
@@ -111,6 +106,12 @@ return redirect('teacher/create');
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'fName' => 'required|min:2|max:12',
+            'lName' => 'required|min:2|max:12',
+            'phone' => 'required|min:11|max:11',
+
+        ]);
         $teacher =  Teacher::find($id);
         $teacher->fName = $request->fName;
         $teacher->lName = $request->lName;

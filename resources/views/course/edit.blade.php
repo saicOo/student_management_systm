@@ -25,15 +25,21 @@
       <div class="x_content">
         <br />
         <form action="{{route('course.update',$course->id)}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-@csrf
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coursName">Course Name <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input value="{{$course->coursName}}" type="text" name="coursName" id="coursName" required="required" class="form-control col-md-7 col-xs-12">
-              <input value="{{$course->branchId}}" type="hidden" name="branchId" id="branchId" required="required" class="form-control col-md-7 col-xs-12">
+            @csrf
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coursName">Branch Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input value="{{$course->Branch->branchName}}" type="text" name="branchId" id="branchId" required="required" class="form-control col-md-7 col-xs-12" readonly>
+              </div>
             </div>
-          </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coursName">Course Name <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input value="{{$course->coursName}}" type="text" name="coursName" id="coursName" required="required" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

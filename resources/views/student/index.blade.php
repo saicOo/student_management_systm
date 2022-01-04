@@ -12,7 +12,7 @@
    {{Session::get("delete")}}
 </div>
 @endif
-<div class="x_content">
+<div class="x_content" style="overflow-x: auto;">
     <h3>Students/List</h3>
 
     <table class="table table-bordered">
