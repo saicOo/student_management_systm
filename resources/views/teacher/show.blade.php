@@ -32,9 +32,10 @@
                         <i class="fa fa-users user-profile-icon"></i> number of students: {{ $countStudent }}
                     </li>
                 </ul>
-
+                @if (Auth::user()->role == 1 )
                 <a class="btn btn-success" href="{{ route('teacher.edit', $teacher->id) }}"><i
                         class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                        @endif
             </div>
             <!-- start skills -->
             <div class="col-md-6">

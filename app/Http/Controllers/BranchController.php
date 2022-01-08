@@ -41,7 +41,7 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'branchName' => 'required|unique:branches',
+            'branchName' => 'required|unique:branches|min:1|max:30',
         ]);
         $branch = new Branch;
         $branch->branchName = $request->branchName;
@@ -84,7 +84,7 @@ return redirect('branch/create');
     public function update(Request $request, $id)
     {
         $request->validate([
-            'branchName' => 'required|unique:branches',
+            'branchName' => 'required||min:1|max:30',
         ]);
         $branch =  branch::find($id);
         $branch->branchName = $request->branchName;

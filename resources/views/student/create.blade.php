@@ -31,32 +31,32 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Name <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" name="fName" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                <input type="text" name="fName"  value="{{ old('fName') }}" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Father's Name <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input name="lName" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                <input name="lName"  value="{{ old('lName') }}" type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input name="phone" id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                <input name="phone" value="{{ old('phone') }}"  class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12">Email<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input name="email" id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                <input name="email" value="{{ old('email') }}"  class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
               </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branchId">Branch sort name <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branchId">Branch name <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select name="branchId" id="branchId" class="branches form-control col-md-7 col-xs-12">

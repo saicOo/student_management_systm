@@ -128,7 +128,7 @@ return redirect('teacher');
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy($id)
     {
         $teacher = Teacher::find($id);
         $teacher->delete();

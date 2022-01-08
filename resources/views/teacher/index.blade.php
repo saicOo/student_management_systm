@@ -26,8 +26,10 @@
           <th>Branch</th>
           <th>Course</th>
           <th>Show</th>
+          @if (Auth::user()->role == 1 )
           <th>Edit</th>
           <th>Delete</th>
+          @endif
         </tr>
       </thead>
       <tbody>

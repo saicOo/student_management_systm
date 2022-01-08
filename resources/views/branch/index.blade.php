@@ -18,16 +18,20 @@
       <thead>
         <tr>
           <th>Branch Name</th>
+          @if (Auth::user()->role == 1 )
           <th>Edit</th>
           <th>Delete</th>
+          @endif
         </tr>
       </thead>
       <tbody>
           @foreach ($branch as $item)
           <tr>
               <td>{{$item->branchName}}</td>
+              @if (Auth::user()->role == 1 )
               <td><a class="btn btn-info" href="{{route('branch.edit',$item->id)}}">Edit</a></td>
               <td><a class="btn btn-danger" href="{{route('branch.destroy',$item->id)}}">Delete</a></td>
+              @endif
             </tr>
             @endforeach
         </tbody>

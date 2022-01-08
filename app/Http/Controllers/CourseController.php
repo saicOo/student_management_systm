@@ -43,8 +43,8 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'coursName' => 'required',
-            'branchId' => 'required',
+            'coursName' => 'required|min:1|max:20',
+            'branchId' => 'required|',
         ]);
         $course = new Course ;
         $course->coursName = $request->coursName;
@@ -91,7 +91,7 @@ return redirect('course/create');
     public function update(Request $request, $id)
     {
         $request->validate([
-            'coursName' => 'required',
+            'coursName' => 'required|min:1|max:20',
         ]);
         $course =  Course::find($id);
         $course->coursName = $request->coursName;
