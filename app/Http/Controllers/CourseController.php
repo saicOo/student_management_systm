@@ -50,7 +50,7 @@ class CourseController extends Controller
         $course->coursName = $request->coursName;
         $course->branchId = $request->branchId;
         $course->save();
-        session()->flash('done',"update in successfully");
+        session()->flash('done',"added in successfully");
 return redirect('course/create');
     }
 

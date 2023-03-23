@@ -1,17 +1,3 @@
-@guest
-<div class="col-md-12">
-    <div class="col-middle">
-        <div class="text-center text-center">
-            <h1 class="error-number">404</h1>
-            <h2>Sorry but we couldn't find this page</h2>
-            <p>This page you are looking for does not exist
-            </p>
-        </div>
-    </div>
-</div>
-
-@else
-
 @extends('layouts.app')
 
 @section('content')
@@ -77,8 +63,8 @@
 
                 <div class="col-md-6">
                     <select name="role" class="form-control col-md-7 col-xs-12">
-                        <option value="0">partial Admin</option>
-                        <option value="1">General Admin</option>
+                        <option value="1">Super Admin</option>
+                        <option value="0">Sub Admin</option>
                     </select>
                 </div>
             </div>
@@ -109,4 +95,3 @@
 @endif
 @endsection
 
-@endif

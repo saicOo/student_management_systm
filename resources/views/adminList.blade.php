@@ -27,12 +27,13 @@
         </tr>
       </thead>
       <tbody>
-          @foreach ($admin as $item)
+          @foreach ($admins as $admin)
+          @continue($admin->email == 'admin@app.com' || $admin->email == 'subAdmin@app.com')
           <tr>
-              <td>{{$item->name}}</td>
-              <td>{{$item->email}}</td>
+              <td>{{$admin->name}}</td>
+              <td>{{$admin->email}}</td>
               @if (Auth::user()->role == 1 )
-              <td><a class="btn btn-danger" href="{{route('admins.destroy',$item->id)}}">Delete</a></td>
+              <td><a class="btn btn-danger" href="{{route('admins.destroy',$admin->id)}}">Delete</a></td>
               @endif
             </tr>
             @endforeach

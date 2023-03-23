@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-class adminController extends Controller
+class AdminController extends Controller
 {
 
     public function index()
     {
-        $admin = User::all();
-        return view('adminList', compact('admin'));
+        $admins = User::all();
+        return view('adminList', compact('admins'));
     }
 
     public function destroy($id)

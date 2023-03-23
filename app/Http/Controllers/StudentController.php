@@ -68,7 +68,7 @@ class StudentController extends Controller
         $student->save();
         $request->image->move(public_path('post_Image'), $student->image);
 
-        session()->flash('done',"logged in successfully");
+        session()->flash('done',"added in successfully");
 return redirect('student/create');
     }
 

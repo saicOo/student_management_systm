@@ -48,10 +48,10 @@ class TeacherController extends Controller
         $request->validate([
             'fName' => 'required|min:2|max:12',
             'lName' => 'required|min:2|max:12',
-            'phone' => 'required|min:11|max:11',
+            'phone' => 'required|digits:11',
             'branchId' => 'required',
             'course_id' => 'required',
-            'image'=>'mimes:jpeg,png,jpg',
+            'image'=>'required|mimes:jpeg,png,jpg,webp',
         ]);
         $teacher = new Teacher;
         $teacher->fName = $request->fName;
@@ -63,7 +63,7 @@ class TeacherController extends Controller
         $teacher->save();
         $request->image->move(public_path('post_Image'), $teacher->image);
 
-        session()->flash('done',"logged in successfully");
+        session()->flash('done',"added in successfully");
 return redirect('teacher/create');
     }
 
@@ -109,7 +109,7 @@ return redirect('teacher/create');
         $request->validate([
             'fName' => 'required|min:2|max:12',
             'lName' => 'required|min:2|max:12',
-            'phone' => 'required|min:11|max:11',
+            'phone' => 'required|digits:11',
 
         ]);
         $teacher =  Teacher::find($id);

@@ -46,7 +46,7 @@ class BranchController extends Controller
         $branch = new Branch;
         $branch->branchName = $request->branchName;
         $branch->save();
-        session()->flash('done',"logged in successfully");
+        session()->flash('done',"added in successfully");
 return redirect('branch/create');
     }
 

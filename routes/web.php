@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admins', 'adminController@index')->name('admins');
-Route::get('/admins/destroy/{id}', 'adminController@destroy')->name('admins.destroy');
+Route::get('/admins', 'AdminController@index')->name('admins');
+Route::get('/admins/destroy/{id}', 'AdminController@destroy')->name('admins.destroy');
 // Branch Route
 Route::get('branch', 'BranchController@index')->name('branch.index');
 Route::get('branch/create', 'BranchController@create')->name('branch.create');
